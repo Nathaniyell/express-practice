@@ -63,3 +63,18 @@ app.get('/api/courses/:id', (req, res)=>{
     ```js
      npm i joi
      ```
+
+  - Next steps is to import and use it:
+
+     ```js
+     const Joi = require('joi')
+      const schema = Joi.object({
+        name: Joi.string().min(3).required()
+    });
+
+    const { error } = schema.validate(req.body);
+    
+    if (error) {
+        return res.status(400).send(error.details[0].message);
+    }
+     ```

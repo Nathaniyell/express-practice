@@ -1,3 +1,4 @@
+const Joi = require('joi')
 const express = require('express')
 const app = express()
 
@@ -39,20 +40,28 @@ app.get('/api/courses/:id', (req, res) => {
     res.send(course)
 })
 
+
+
 app.post('/api/courses', (req, res) => {
-    const { name } = req.body
-    if (!name || name.length < 3) {
-        res.status(400).send('Name is required and should be a minimum of 3 characters')
-        return;
-    }
-    const course = {
-        id: courses.length + 1,
-        name: name
+    const schema = Joi.object({
+        name: Joi.string().min(3).required()
+    });
+
+    const { error } = schema.validate(req.body);
+    
+    if (error) {
+        return res.status(400).send(error.details[0].message);
     }
 
-    courses.push(course)
-    res.send(courses)
-})
+    const course = {
+        id: courses.length + 1,
+        name: req.body.name
+    };
+
+    courses.push(course);
+    res.send(course);
+});
+
 
 app.listen(port, () => {
     console.log("App is running on port: " + port)
