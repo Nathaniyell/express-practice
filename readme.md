@@ -24,13 +24,20 @@ This reppo is for practicing the rudiments of building an express server and api
     - Your server port should be stored in an env file and loaded using `process.env.PORT`
 
 
-## Route Parameters
+## Parameters
 
-To specify route params, we use the `/:(parameter_name)` after the enpoint
+- To specify route params, we use the `/:(parameter_name)` after the enpoint
 
 ```js
     app.get('/api/courses/:id', (req, res)=>{
     res.send(req.params.id)
-    //This returns the parameter specified in the url to the client
+    //This returns the route parameter specified in the url to the client
+    })
+```
+- Query parameters are added to the url after a question sign and are usd to provide additional data to the backend service.
+    ```js
+    app.get('/api/courses/:id?sortBy=', (req, res)=>{
+    res.send(req.params)
+    //This returns the parameters specified in the url to the client. The sortBy value is the query parameter
     })
 ```
