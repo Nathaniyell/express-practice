@@ -27,10 +27,14 @@ app.get('/api/courses', (req, res) => {
 })
 
 app.get('/api/courses/:id', (req, res) => {
-  const singleCourse =  courses.find(c => c.id === parseInt(req.params.id))
-   // const routeParams = req.query
-    //const routeParams = req.params
-    res.send(singleCourse)
+    // const routeParams = req.query
+     //const routeParams = req.params
+  const course =  courses.find(c => c.id === parseInt(req.params.id))
+  if(!course){
+    res.status(404).send("The course with the specified ID was not found")
+    return
+  }
+    res.send(course)
 })
 
 
