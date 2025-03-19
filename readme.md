@@ -16,7 +16,7 @@ This reppo is for practicing the rudiments of building an express server and api
   - Then at the end of the file, you listeed to the port to start the server
     `app.listen(PORT, console.log("App is running on port: " + PORT))`
 
-- The app has a bunch of usefule methods
+- The app has a bunch of useful methods
 
     ```
         app.get(), app.post(), app.put(), app.delete()
