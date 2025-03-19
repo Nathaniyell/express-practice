@@ -7,3 +7,8 @@ This reppo is for practicing the rudiments of building an express server and api
     const express = require('express')
     const app = express()
     ```
+
+- The app has a bunch of usefule methods
+    ```
+        app.get(), app.post(), app.put(), app.delete()
+    ```
