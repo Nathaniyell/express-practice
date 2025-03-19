@@ -3,6 +3,21 @@ const app = express()
 
 const port = process.env.PORT || 3434
 
+const courses =[
+    {
+        id: 1,
+        name: "chemistry"
+    },
+    {
+        id: 2,
+        name: "physics"
+    },
+    {
+        id: 3,
+        name: "mathematics"
+    },
+]
+
 app.get('/', (req, res)=>{
     res.send("Hello World")
 })
