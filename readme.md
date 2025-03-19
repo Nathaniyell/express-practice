@@ -32,7 +32,7 @@ This reppo is for practicing the rudiments of building an express server and api
 
   - Your server port should be stored in an env file and loaded using `process.env.PORT`
 
-## Parameters
+    ### Parameters
 
 - To specify route params, we use the `/:(parameter_name)` after the enpoint
   - Route params are used for essential or required values
@@ -57,3 +57,9 @@ app.get('/api/courses/:id', (req, res)=>{
     })
         const queryParams = req.query //to access query parameters
     ```
+
+- Always validate responses from the client. This can be done by writing validation logic (specifying appropriate status code and error message) at the beginning of the api route logic or using an npm package called `joi`:
+
+    ```js
+     npm i joi
+     ```
