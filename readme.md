@@ -9,7 +9,8 @@ This reppo is for practicing the rudiments of building an express server and api
     ```js
     const express = require('express')
     const app = express()
-    const PORT = 3000 || //or any port number of your choice
+    const PORT = process.env.PORT || //or any port number of your choice
+    app.use(express.json()) // specify a middleware to parse your json and be able to access it on your api routes
     ```
 
   - Then at the end of the file, you listeed to the port to start the server
