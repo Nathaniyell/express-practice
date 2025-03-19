@@ -37,7 +37,7 @@ This reppo is for practicing the rudiments of building an express server and api
 - Query string parameters are added to the url after a question sign and are usd to provide additional data to the backend service.
     + Query string params are used for optional values
     ```js
-    app.get('/api/courses/:id?sortBy=', (req, res)=>{
+    app.get('/api/courses/:id', (req, res)=>{
     res.send(req.query)
     //This returns the parameters specified in the url to the client. The sortBy value is the query string parameter
     })

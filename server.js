@@ -11,11 +11,11 @@ app.get('/api/courses', (req, res)=>{
     res.send([1,2,3])
 })
 app.get('/api/courses/:id', (req, res)=>{
-    res.send(req.params.id)
+    const queryParams = req.query
+    const routeParams = req.params
+    res.send(routeParams)
 })
-app.get('/api/courses/:id', (req, res)=>{
-    res.send(req.query)
-})
+
 
 app.listen(port, ()=>{
     console.log("App is running on port: " + port)
