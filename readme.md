@@ -21,3 +21,16 @@ This reppo is for practicing the rudiments of building an express server and api
     res.send("Hello World")
     })
     ```
+    - Your server port should be stored in an env file and loaded using `process.env.PORT`
+
+
+## Route Parameters
+
+To specify route params, we use the `/:(parameter_name)` after the enpoint
+
+```js
+    app.get('/api/courses/:id', (req, res)=>{
+    res.send(req.params.id)
+    //This returns the parameter specified in the url to the client
+    })
+```
