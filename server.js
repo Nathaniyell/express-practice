@@ -24,10 +24,10 @@ if (app.get('env') === "development") {
     startupDebugger("Morgan enabled...")
 }
 const port = process.env.PORT || 3434
-app.use('/api/courses', courses)
 app.get('/', (req, res) => {
     res.render("index", { title: "Express Practice App", message: "Hello World" })
 })
+app.use('/api/courses', courses)
 
 app.listen(port, () => {
     console.log("App is running on port: " + port)

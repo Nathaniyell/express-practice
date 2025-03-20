@@ -171,3 +171,26 @@ app.get('/', (req, res) => {
 })
 
 ```
+
+### File Structure
+
+In express, all the api enpoints should be classified in a routes file/folder and imported into the main server file to ensure that the codebase is modular and clean.
+
+- In the [routes](/routes) folder, create different files for different routes like the [courses](/routes/courses.js) routes is for all the enpoints that has to do with courses. The project structure looks like
+
+```js
+const express = require('express')
+const router = express.Router()
+router.get('/', (req, res) => {
+    res.send(courses)
+})
+
+module.exports = router 
+```
+
+- Then in your main server.js file, import and use the route you just created:
+
+```js
+const courses = require('./routes/courses')
+app.use('/api/courses', courses)
+```
