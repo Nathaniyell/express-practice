@@ -91,3 +91,12 @@ app.get('/api/courses/:id', (req, res)=>{
   - Make changes to the request and the response objects
   - End the request-response cycle.
   - Call the next middleware in the stack.
+
+>Middlewares should be written in a separate file from the [server.js](/server.js) file. Example of a middleware:
+
+```js
+app.use((req,res,next)=>{
+    //middleware logic
+    next()
+})
+```
