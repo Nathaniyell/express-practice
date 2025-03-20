@@ -1,3 +1,5 @@
+const startupDebugger = require('debug')('app:startup')
+const dbDebugger = require('debug')('app:db')
 const Joi = require('joi')
 const express = require('express')
 const logger = require('./middleware/logger')
@@ -15,7 +17,7 @@ app.use(logger)
 //If the current environment is set to development,  then morgan middleware should be active 
 if (app.get('env')=== "development"){
     app.use(morgan('tiny'))
-    console.log("Morgan enabled...")
+    startupDebugger("Morgan enabled...")
 }
 
 const port = process.env.PORT || 3434

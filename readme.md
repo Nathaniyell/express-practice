@@ -128,3 +128,28 @@ module.exports middlewareName
 ### Configurations
 
 > To store or manage configurations based on the environments or other secrets of your app, you can use an npm package called `rc` or `config`. Create a config folder afterwards and store the configs in json files `example-config.json`
+
+> To debug your application, you can use an npm package called `debug` and install it with `npm debug`. Using it will save you the hassle of commenting out your `console.log` whenever you want to push to production
+
+```js
+const startupDebugger = require('debug')('app:startup')
+const dbDebugger = require('debug')('app:db')
+//Will show the debug log based on the namespace used, db logs and the general app logs
+
+//on the terminal, set an environment variable to determine what kind of debug information we want to see
+set DEBUG=app:startup || set DEBUG=app:db
+
+//To reset
+set DEBUG=
+
+//To set the debug env to multiple namespaces
+set DEBUG=app:*
+```
+
+> With the above, you can easily change all the logging messages to use the type of debug log you want as shown
+
+```js
+   startupDebugger("Morgan enabled...") //will show general app logs
+dbDebugger("Database message") //will show only bugs related to the db
+    ```
+   
