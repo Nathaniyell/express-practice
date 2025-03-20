@@ -6,6 +6,8 @@ const logger = require('./middleware/logger')
 const helmet = require('helmet')
 const morgan = require('morgan')
 const courses = require('./routes/courses')
+const home = require('./routes/home')
+
 const app = express()
 
 app.set('view engine', 'pug')
@@ -24,11 +26,9 @@ if (app.get('env') === "development") {
     startupDebugger("Morgan enabled...")
 }
 const port = process.env.PORT || 3434
-app.get('/', (req, res) => {
-    res.render("index", { title: "Express Practice App", message: "Hello World" })
-})
-app.use('/api/courses', courses)
 
+app.use('/api/courses', courses)
+app.use('/', home)
 app.listen(port, () => {
     console.log("App is running on port: " + port)
 })
