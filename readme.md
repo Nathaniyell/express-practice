@@ -158,3 +158,16 @@ dbDebugger("Database message") //will show only bugs related to the db
 
 - pug requires a [views](/views)
   - It also requires an [index.pug](/views/index.pug) file where the static content are saved
+  
+  In server.js, initialize pug as seen below
+
+```js
+app.set('view engine', 'pug')
+app.set('views', './views') //default
+
+app.get('/', (req, res) => {
+    res.render("index", { title: "Express Practice App", message: "Hello World" })
+    //use the render method, specify the index route, the second argument should be the variables defined in the index.pug file as well as the values for those variables
+})
+
+```

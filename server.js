@@ -7,6 +7,9 @@ const helmet = require('helmet')
 const morgan = require('morgan')
 const app = express()
 
+app.set('view engine', 'pug')
+app.set('views', './views') //default
+
 app.use(express.json())
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
@@ -15,7 +18,7 @@ app.use(helmet())
 app.use(logger)
 
 //If the current environment is set to development,  then morgan middleware should be active 
-if (app.get('env')=== "development"){
+if (app.get('env') === "development") {
     app.use(morgan('tiny'))
     startupDebugger("Morgan enabled...")
 }
@@ -38,7 +41,7 @@ const courses = [
 ]
 
 app.get('/', (req, res) => {
-    res.send("Hello World")
+    res.render("index", { title: "Express Practice App", message: "Hello World" })
 })
 
 app.get('/api/courses', (req, res) => {
