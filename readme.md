@@ -101,3 +101,8 @@ function middlewareName(req,res,next){
 }
 module.exports middlewareName
 ```
+
+- Examples of middlewares that come with express which must be defined on every server
+  - `app.use(express.urlencoded({ extended: true }))` - this middleware helps to parse URL-encoded bodies, typically from form submissions. The extended: true option allows it to handle more complex data structures.
+
+  - `app.use(express.static('public'))` - specifies the folder where our static files are stored incase we want to serve it to the client.
