@@ -128,7 +128,6 @@ module.exports middlewareName
 ### Configurations
 
 > To store or manage configurations based on the environments or other secrets of your app, you can use an npm package called `rc` or `config`. Create a config folder afterwards and store the configs in json files `example-config.json`
-
 > To debug your application, you can use an npm package called `debug` and install it with `npm debug`. Using it will save you the hassle of commenting out your `console.log` whenever you want to push to production
 
 ```js
@@ -151,5 +150,11 @@ set DEBUG=app:*
 ```js
    startupDebugger("Morgan enabled...") //will show general app logs
 dbDebugger("Database message") //will show only bugs related to the db
-    ```
-   
+```
+
+### Templating Engines
+>
+> Templating can be done with npm packages like `pug or ejs`
+
+- pug requires a [views](/views)
+  - It also requires an [index.pug](/views/index.pug) file where the static content are saved
