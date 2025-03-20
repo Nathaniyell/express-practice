@@ -123,4 +123,8 @@ module.exports middlewareName
 2. process.env.NODE_ENV
 ```
 
-- To set the environment variable, use `set NODE_ENV=production` or development as the case may be. On mac, use `export NODE_ENV=development/production`
+> To set the environment variable, on your terminal, type `set NODE_ENV=production` or development as the case may be. On mac, use `export NODE_ENV=development/production`
+
+### Configurations
+
+> To store or manage configurations based on the environments or other secrets of your app, you can use an npm package called `rc` or `config`. Create a config folder afterwards and store the configs in json files `example-config.json`
