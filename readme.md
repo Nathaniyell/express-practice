@@ -95,8 +95,9 @@ app.get('/api/courses/:id', (req, res)=>{
 >Middlewares should be written in a separate file from the [server.js](/server.js) file. Example of a middleware:
 
 ```js
-app.use((req,res,next)=>{
+function middlewareName(req,res,next){
     //middleware logic
     next()
-})
+}
+module.exports middlewareName
 ```

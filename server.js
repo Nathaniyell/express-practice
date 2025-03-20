@@ -1,8 +1,10 @@
 const Joi = require('joi')
 const express = require('express')
+const logger = require('./middleware/logger')
 const app = express()
 
 app.use(express.json())
+app.use(logger)
 
 const port = process.env.PORT || 3434
 
@@ -62,7 +64,7 @@ app.put('/api/courses/:id', (req, res) => {
     const course = courses.find(c => c.id === parseInt(req.params.id));
     if (!course) {
         return res.status(404).send("The course with the specified ID was not found");
-        
+
     }
 
     const { error } = validateCourse(req.body);
