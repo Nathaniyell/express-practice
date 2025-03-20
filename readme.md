@@ -91,6 +91,7 @@ app.get('/api/courses/:id', (req, res)=>{
   - Make changes to the request and the response objects
   - End the request-response cycle.
   - Call the next middleware in the stack.
+  >>*Every middleware function imported can impact the performance of your application*
 
 >Middlewares should be written in a separate file from the [server.js](/server.js) file. Example of a middleware:
 
@@ -106,3 +107,11 @@ module.exports middlewareName
   - `app.use(express.urlencoded({ extended: true }))` - this middleware helps to parse URL-encoded bodies, typically from form submissions. The extended: true option allows it to handle more complex data structures.
 
   - `app.use(express.static('public'))` - specifies the folder where our static files are stored incase we want to serve it to the client.
+
+  - Helmet is a third-party middleware that helps secure your apps by setting various HTTP headers
+  
+  ```js
+  npm i helmet --save
+  const helmet = require('helmet')
+  app.use(helmet())
+  ```

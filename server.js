@@ -1,11 +1,13 @@
 const Joi = require('joi')
 const express = require('express')
 const logger = require('./middleware/logger')
+const helmet = require('helmet')
 const app = express()
 
 app.use(express.json())
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
+app.use(helmet())
 app.use(logger)
 
 const port = process.env.PORT || 3434
