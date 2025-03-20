@@ -115,3 +115,12 @@ module.exports middlewareName
   const helmet = require('helmet')
   app.use(helmet())
   ```
+
+- To check the current environment you are working in and maybe enable some features of your server based on that environment, use either of these:
+
+```js
+1. app.get('env') // which will return either development or production
+2. process.env.NODE_ENV
+```
+
+- To set the environment variable, use `set NODE_ENV=production` or development as the case may be. On mac, use `export NODE_ENV=development/production`

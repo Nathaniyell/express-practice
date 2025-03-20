@@ -9,8 +9,14 @@ app.use(express.json())
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(helmet())
-app.use(morgan('tiny'))
+
 app.use(logger)
+
+//If the current environment is set to development,  then morgan middleware should be active
+if (app.get('env')=== "development"){
+    app.use(morgan('tiny'))
+    console.log("Morgan enabled...")
+}
 
 const port = process.env.PORT || 3434
 
