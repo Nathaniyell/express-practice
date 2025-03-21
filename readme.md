@@ -18,8 +18,7 @@
 
 - The app has a bunch of useful methods
 
-    ```
-        app.get(), app.post(), app.put(), app.delete()
+    ```        app.get(), app.post(), app.put(), app.delete()
     ```
 
   - To run a simple get request, this is the syntax:
