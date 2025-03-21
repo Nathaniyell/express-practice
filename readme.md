@@ -81,7 +81,6 @@ app.get('/api/courses/:id', (req, res)=>{
 ### Middlewares
 
 > Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle. The next function is a function in the Express router which, when invoked, executes the middleware succeeding the current middleware.
-
 > If the current middleware function does not end the request-response cycle, it must call next() to pass control to the next middleware function. Otherwise, the request will be left hanging.
 
 - Middleware functions can perform the following tasks:
