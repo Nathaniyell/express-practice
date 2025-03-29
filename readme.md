@@ -192,3 +192,11 @@ module.exports = router
 const courses = require('./routes/courses')
 app.use('/api/courses', courses)
 ```
+
+### Asynchronous code
+>
+> There are three methods to work with asynchronous code
+
+1. Callbacks
+2. Promises
+3. Async / Await
