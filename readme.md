@@ -210,6 +210,17 @@ getUser(1, function(user){
   console.log("user", user)
 })
 ```
-   
-2. Promises
+
+2. Promises: An object that holds an eventual result of an asynchronous operation. It can either resolve if the response is successful or reject when there is an error.
+
+```js
+const p = new Promise(function(resolve, reject){
+   resolve("something")
+   reject(new Error("new error"))
+   //you either resolve or reject, you cannot have the two at the same time
+})
+//to consume the promise
+p.then(result=>console.log('Result', result)).catch(err=>console.log('error', err.message))
+```
+
 3. Async / Await
