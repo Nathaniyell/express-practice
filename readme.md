@@ -197,6 +197,19 @@ app.use('/api/courses', courses)
 >
 > There are three methods to work with asynchronous code
 
-1. Callbacks
+1. Callbacks: A function that can be called when the result of an async operation is ready
+
+```js
+function getUser(id, callbackFn){
+  setTimeout(()=>{
+    console.log('Reading a user from a database...')
+    callbackFn({id: id, githubUsername: "nathaniyell"})
+  }, 2000)
+}
+getUser(1, function(user){
+  console.log("user", user)
+})
+```
+   
 2. Promises
 3. Async / Await
