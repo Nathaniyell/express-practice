@@ -211,7 +211,7 @@ getUser(1, function(user){
 })
 ```
 
-2. Promises: An object that holds an eventual result of an asynchronous operation. It can either resolve if the response is successful or reject when there is an error.
+2. Promises: A proxy for a value not necessarily known when the promise is created. It holds an eventual result of an asynchronous operation. It can either resolve if the response is successful or reject when there is an error.
 
 ```js
 const p = new Promise(function(resolve, reject){
