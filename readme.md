@@ -214,13 +214,19 @@ getUser(1, function(user){
 2. Promises: A proxy for a value not necessarily known when the promise is created. It holds an eventual result of an asynchronous operation. It can either resolve if the response is successful or reject when there is an error.
 
 ```js
-const p = new Promise(function(resolve, reject){
-   resolve("something")
-   reject(new Error("new error"))
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("This is a promise");
+  }, 300);
+});
+
+myPromise
+  .then(handleFulfilledA, handleRejectedA)
+  .then(handleFulfilledB, handleRejectedB)
+  .then(handleFulfilledC, handleRejectedC);
    //you either resolve or reject, you cannot have the two at the same time
-})
 //to consume the promise
-p.then(result=>console.log('Result', result)).catch(err=>console.log('error', err.message))
+
 ```
 
 3. Async / Await
